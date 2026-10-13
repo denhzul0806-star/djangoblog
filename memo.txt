@@ -1,0 +1,8 @@
+python manage.py dbshell postgre sql.d holbogdono
+
+query
+
+SELECT id, title, content, slug, status, created_at, updated_at, category_id FROM blog_post;
+select * from blog_post
+
+https://github.com/denhzul0806-star/djangoblog.git

@@ -1,0 +1,57 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }} | Niigata Blog{% endblock %}
+
+{% block content %}
+<div class="container my-4" style="max-width: 800px;">
+
+    <!-- 1. Back link -->
+    <div class="mb-4">
+        <a href="{% url 'home' %}" class="text-secondary text-decoration-none" style="font-size: 0.95rem;">
+            &larr; Back to all posts
+        </a>
+    </div>
+
+    <!-- 2. Post Title -->
+    <h1 class="fw-bold mb-2" style="font-size: 3rem; color: #111;">{{ post.title }}</h1>
+
+    <!-- 3. Top Date -->
+    <p class="text-secondary mb-4" style="font-size: 1.1rem;">{{ post.created_at|date:"M d, Y" }}</p>
+
+    <!-- 4. Cover Image (If exists) -->
+    {% if post.cover_image %}
+        <div class="mb-4">
+            <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" class="img-fluid rounded" style="max-height: 450px; width: 100%; object-fit: cover;">
+        </div>
+    {% endif %}
+
+    <!-- 5. Content -->
+    <div class="mb-4" style="font-size: 1.05rem; line-height: 1.6; color: #333;">
+        {{ post.content|linebreaks }}
+    </div>
+
+    <!-- 6. Author & Date info line -->
+    <div class="text-secondary mb-4" style="font-size: 1rem;">
+        By 
+        {% if post.author.email %}
+            {{ post.author.email }}
+        {% elif post.author %}
+            {{ post.author.username }}
+        {% else %}
+            denhzul0806@gmail.com
+        {% endif %} 
+        on {{ post.created_at|date:"M d, Y" }}
+    </div>
+
+    <!-- 7. Edit / Delete buttons -->
+    <div class="d-flex gap-2">
+        <a href="{% url 'post_edit' post.slug %}" class="btn btn-outline-secondary px-3 py-1" style="border-radius: 6px; color: #555;">
+            Edit
+        </a>
+        <a href="{% url 'post_delete' post.slug %}" class="btn btn-outline-danger px-3 py-1" style="border-radius: 6px; color: #dc3545;">
+            Delete
+        </a>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ category.name }} | Niigata Blog{% endblock %}
+
+{% block content %}
+
+<section class="category-header">
+    <div class="container">
+
+        <div class="eyebrow text-muted">
+            CATEGORY
+        </div>
+
+        <h1>{{ category.name }}</h1>
+
+        <p class="lead">
+            Explore posts about {{ category.name }}.
+        </p>
+
+    </div>
+</section>
+
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="row g-4">
+
+            {% for post in posts %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="post-card h-100">
+
+                    <div class="post-card-body">
+
+                        <div class="post-date">
+                            {{ post.created_at|date:"Y.m.d" }}
+                        </div>
+
+                        <h2 class="h4 mt-2">
+                            <a
+                                href="{% url 'post_detail' post.slug %}"
+                                class="text-decoration-none text-dark"
+                            >
+                                {{ post.title }}
+                            </a>
+                        </h2>
+
+                        <p>
+                            {{ post.content|truncatewords:30 }}
+                        </p>
+
+                        <a
+                            class="read-more"
+                            href="{% url 'post_detail' post.slug %}"
+                        >
+                            Read more →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-state">
+
+                    <h3>No posts yet</h3>
+
+                    <p>
+                        There are no published posts in this category.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

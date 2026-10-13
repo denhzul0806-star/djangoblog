@@ -1,11 +1,55 @@
 {% extends 'blog/base.html' %}
-{% load static %}
+
+{% block title %}Contact | Niigata Blog{% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
-    <div style="max-width: 600px; margin: 50px auto; padding: 30px; background: #962c2c; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center;" class="contact-page">
+<section class="category-header">
+    <div class="container">
+
+        <div class="eyebrow text-muted">
+            CONTACT
+        </div>
+
         <h1>Contact</h1>
-        <p>This is the Contact page.</p>
+
+        <p class="lead">
+            Feel free to contact us about Niigata Blog.
+        </p>
+
     </div>
+</section>
+
+
+<section class="py-5">
+
+    <div class="container">
+
+        <article class="article-page mx-auto">
+
+            <div class="article-content">
+
+                <h2>Get in Touch</h2>
+
+                <p>
+                    Thank you for visiting Niigata Blog.
+                </p>
+
+                <p>
+                    If you have any questions, suggestions,
+                    or feedback, please feel free to contact us.
+                </p>
+
+                <p>
+                    We would love to hear from you.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
 {% endblock %}

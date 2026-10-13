@@ -1,8 +1,37 @@
 {% extends 'blog/base.html' %}
 
+{% block title %}Niigata Blog{% endblock %}
+
 {% block content %}
-<center>
-    <h1>Home</h1>
-    <p>Welcome to Kanji Study!</p>
-    </center>
+
+<section class="hero">
+    <div class="container">
+        <div class="eyebrow">DISCOVER NIIGATA</div>
+        <h1>Niigata Blog</h1>
+        <p>Discover travel, food, restaurants and izakaya around Niigata.</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="mb-4">Latest Posts</h2>
+        <div class="row g-4">
+            {% for post in posts %}
+            <div class="col-md-6">
+                <div class="post-card">
+                    {% if post.cover_image %}
+                        <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" style="width:100%; height:200px; object-fit:cover; border-radius:12px;">
+                    {% endif %}
+                    <div class="eyebrow text-muted mt-3">{{ post.created_at|date:"Y.m.d" }}</div>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content|truncatechars:60 }}</p>
+                    <p class="small">Category: <strong>{{ post.category.name }}</strong></p>
+                    <a href="{% url 'post_detail' post.slug %}" class="fw-bold">Read more →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 {% endblock %}

@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     margin: 0;
@@ -22,4 +22,155 @@ body {
 .contact-page p {
     color: #666;
     font-size: 18px;
+} */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f5;
+    color: #222;
+}
+
+.niigata-nav {
+    background: #18202a;
+    min-height: 68px;
+}
+
+.navbar-brand {
+    letter-spacing: .5px;
+}
+
+.hero {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #243447, #506579);
+}
+
+.hero-card {
+    max-width: 760px;
+    color: white;
+    padding: 55px 0;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: .7;
+}
+
+.category-card {
+    display: block;
+    min-height: 220px;
+    padding: 28px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform .2s ease, box-shadow .2s ease;
+    background: #2f3d4a;
+}
+
+.category-card:hover {
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.14);
+}
+
+.category-card span {
+    font-size: .8rem;
+    opacity: .65;
+}
+
+.category-card h3 {
+    margin-top: 45px;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.category-card p {
+    opacity: .8;
+}
+
+.travel { background: #36566b; }
+.izakaya { background: #5b3f45; }
+.food { background: #536143; }
+.restaurant { background: #5c4b38; }
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.post-card {
+    background: white;
+    border: 1px solid #e8e8e4;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.04);
+}
+
+.post-card-body {
+    padding: 25px;
+}
+
+.post-card h3,
+.post-card h2 {
+    font-weight: 700;
+}
+
+.post-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.post-date {
+    color: #777;
+    font-size: .9rem;
+}
+
+.read-more {
+    color: #18202a;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.category-header {
+    padding: 65px 0;
+    background: #e9ecef;
+}
+
+.category-header h1 {
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+}
+
+.empty-state {
+    background: white;
+    border: 1px dashed #bbb;
+    border-radius: 16px;
+    padding: 45px;
+    text-align: center;
+}
+
+.article-page {
+    max-width: 900px;
+}
+
+.article-page h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 800;
+}
+
+.article-content {
+    margin-top: 35px;
+    font-size: 1.12rem;
+    line-height: 1.9;
+}
+
+.footer {
+    background: #18202a;
+    color: #fff;
 }

@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Delete Post | Niigata Blog{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container text-center" style="max-width:600px;">
+        <h2>Delete this post?</h2>
+        <p class="my-4">"{{ post.title }}" will be deleted permanently.</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, delete</button>
+            <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-secondary">Cancel</a>
+        </form>
+    </div>
+</section>
+{% endblock %}

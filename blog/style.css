@@ -6,3 +6,7 @@ body {
     font-weight: bold;
     letter-spacing: 0.05px;
 }
+.niigata-nav .btn-light {
+    border-radius: 999px;
+    font-weight: 600;
+}
