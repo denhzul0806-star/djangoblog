@@ -30,7 +30,6 @@ class Post(models.Model):
     slug = models.SlugField(max_length=220, unique=True, blank=True)
     content = models.TextField()
 
-    # Usuário proprietário do post
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -63,19 +62,19 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            base = slugify(self.title, allow_unicode=True) or "post"
-            slug = base
-            n = 1
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
 
             while Post.objects.filter(slug=slug).exists():
-                n += 1
-                slug = f"{base}-{n}"
+                counter += 1
+                slug = f"{base_slug}-{counter}"
 
             self.slug = slug
 
         super().save(*args, **kwargs)
 
-        # Redimensiona imagens maiores que 800 x 800 pixels
+        # Resize images larger than 800 x 800 pixels
         if self.cover_image:
             try:
                 with Image.open(self.cover_image.path) as img:
