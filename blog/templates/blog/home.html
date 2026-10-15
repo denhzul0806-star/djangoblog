@@ -26,7 +26,9 @@
                     <h3>{{ post.title }}</h3>
                     <p>{{ post.content|truncatechars:60 }}</p>
                     <p class="small">Category: <strong>{{ post.category.name }}</strong></p>
-                    <a href="{% url 'post_detail' post.slug %}" class="fw-bold">Read more →</a>
+                    <a href="{% url 'post_detail' post.slug %}" class="read-more-btn">
+    Read more <span>→</span>
+</a>
                 </div>
             </div>
             {% endfor %}
